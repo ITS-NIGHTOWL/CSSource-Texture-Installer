@@ -1,0 +1,30 @@
+{
+  "name": "cssource-installer",
+  "version": "1.0.0",
+  "description": "A simple utility tool to install CSSource textures into Garrys Mod from an official steam source.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "build": "pkg -t node12-win --target=win-x32 main.js --config package.json --out-path bin/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ITS_N1GH7OWL",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "colors": "^1.4.0",
+    "enquirer": "^2.3.5",
+    "figlet": "^1.3.0",
+    "fs-extra": "^9.0.0",
+    "node-7z": "^2.1.1",
+    "node-pty": "^0.9.0",
+    "ora": "^4.0.4"
+  },
+  "pkg": {
+    "assets": [
+      "assets/",
+      "util/"
+    ]
+  }
+}
