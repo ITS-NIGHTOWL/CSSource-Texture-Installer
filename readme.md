@@ -7,7 +7,9 @@ __**Current Platform Support**__
 - Windows 10 64-bit
 
 __**Planned Platform Support**__
-- Ubuntu/Debian
+- Windows 10 32-bit (next update)
+- Windows 7 64-bit (next update)
+- Ubuntu/Debian (in development)
 
 ## How to install
 1. Download the zip file [here](https://github.com/ITS-NIGHTOWL/CSSource-Texture-Installer/releases/download/1.1.0/installer.zip)
