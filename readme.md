@@ -1,4 +1,6 @@
 # Counter Strike: Source Texture Installer v1.1.0
+![Installer Screenshot](https://raw.githubusercontent.com/ITS-NIGHTOWL/CSSource-Texture-Installer/master/screenshots/Capture.PNG?token=AMLZAQJ2DRJT277TXZUV34K6V5442)
+
 ### An easy to use, straight forward Counter Strike: Source texture installer for `Garrys Mod`. Utilizies steamcmd under the hood to obtain resources legally, and from an official valve source, making the experience safer for users alike.
 
 __**Current Platform Support**__
