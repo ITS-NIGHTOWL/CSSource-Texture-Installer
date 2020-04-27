@@ -5,10 +5,11 @@
 
 __**Current Platform Support**__
 - Windows 10 64-bit
+- Windows 10 32-bit
+- Windows 7 64-bit
+- Windows 7 32-bit (untested)
 
 __**Planned Platform Support**__
-- Windows 10 32-bit (next update)
-- Windows 7 64-bit (next update)
 - Ubuntu/Debian (in development)
 
 ## How to install
