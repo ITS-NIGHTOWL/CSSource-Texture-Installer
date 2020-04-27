@@ -8,7 +8,8 @@ __**Planned Platform Support**__
 - Ubuntu/Debian
 
 ## How to install
-1. Download the zip file [here](https://github.com/ITS-NIGHTOWL/CSSource-Texture-Installer/releases/download/1.1.0/installer.zip).
+1. Download the zip file [here](https://github.com/ITS-NIGHTOWL/CSSource-Texture-Installer/releases/download/1.1.0/installer.zip)
+(You can also get zip file from [releases page](https://github.com/ITS-NIGHTOWL/CSSource-Texture-Installer/releases)).
 2. Extract the ZIP file and run the executable inside called `cssource-installer.exe`.
 3. Wait until the installer gets to the prompt asking `Would you like to start installing the CSSource textures?`. Press `y` on your keyboard.
 4. From there, the installer should automatically start downloading the needed dependecies such as `steamcmd`. Everything from this point is automated, so as long as your computer doesn't automtically go into rest mode, feel free to let it do its thing for 5-10 minutes (time may vary depending on connection speeds)
