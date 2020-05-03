@@ -5,9 +5,7 @@
 
 __**Current Platform Support**__
 - Windows 10 64-bit
-- Windows 10 32-bit
 - Windows 7 64-bit
-- Windows 7 32-bit (untested)
 
 __**Planned Platform Support**__
 - Ubuntu/Debian (in development)
