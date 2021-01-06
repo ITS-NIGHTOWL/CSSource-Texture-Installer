@@ -11,7 +11,7 @@
   "author": "ITS_N1GH7OWL",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chalk": "^4.0.0",
     "colors": "^1.4.0",
     "enquirer": "^2.3.5",
