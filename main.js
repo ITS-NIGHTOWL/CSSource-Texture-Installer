@@ -6,6 +6,7 @@
 	const enquirer = require('enquirer')
 	const figlet = require('figlet')
 	const chalk = require('chalk')
+	const vdf_parser = require('vdf-parser')
 	const appDirectory = require('path').dirname(process.pkg ? process.execPath : (require.main ? require.main.filename : process.argv[0])).replace(/\\/g, '/')
 	let i;
 
@@ -15,7 +16,7 @@
 		horizontalLayout: 'fitted',
 		verticalLayout: 'fitted'
 	}) + chalk.blueBright('v1.1.0 stable')))
-	console.log(chalk.magenta(`A utility designed to help make installing CSSource textures into Garry\s Mod ${chalk.blue('safe')} while also doing it the ${chalk.blue('legal method')} by utilizing steamcmd.`))
+	console.log(chalk.magenta(`A utility designed to help make installing CSSource textures into Garry's Mod ${chalk.blue('safe')} while also using the ${chalk.blue('legal method')} by utilizing steamcmd.`))
 	console.log(chalk.hex('#7289DA')(`Have any questions? Join my discord: https://discord.gg/kb4KREA`))
 	progress.start('Verifying steam directory...')
 
@@ -41,9 +42,28 @@
 		return progress.fail('Steam could not be found on your computer.\nAutomatically closing window in 10 seconds.', 10000)
 	}
 	progress.succeed(`Steam installation directory found: ${steamIPath}`)
-	const gmodIPath = `${steamIPath}/steamapps/common/GarrysMod/garrysmod`
-	progress.start('Verifying Garrys Mod directory...')
-	if (!fs.existsSync(gmodIPath)) return progress.fail('Garrys Mod could not be found on your computer.\nAutomatically closing window in 10 seconds.', 10000)
+	let gmodIPath = await (async () => {
+		return new Promise(function (resolve) {
+			if (fs.existsSync(steamIPath + "/steamapps/appmanifest_4000.acf")) {
+				resolve(steamIPath + "/steamapps/common/GarrysMod")
+			} else if (fs.existsSync(steamIPath + "/steamapps/libraryfolders.vdf")) {
+				var libraryfolders_vdf = vdf_parser.parse(fs.readFileSync(steamIPath + "/steamapps/libraryfolders.vdf").toString())
+				if ("libraryfolders" in libraryfolders_vdf) {
+					for (e in libraryfolders_vdf["libraryfolders"]) {
+						var _e = libraryfolders_vdf["libraryfolders"][e]
+						if ("4000" in _e["apps"]) {
+							resolve(_e["path"].replace("\\\\", "/") + "/steamapps/common/GarrysMod")
+							return
+						}
+					}
+					resolve(false)
+				} else resolve(false)
+			} else resolve(false)
+		})
+	})()
+	if (!gmodIPath) {
+		return progress.fail('Garrys Mod could not be found on your computer.\nAutomatically closing window in 10 seconds.', 10000)
+	}
 	progress.succeed(`Garrys Mod installation directory found: ${gmodIPath}`)
 	progress.start('Checking for steamcmd...')
 	if (!fs.existsSync(appDirectory + '/steam/steamcmd.exe')) {
